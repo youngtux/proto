@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import "./App.css";
 import Archive from "./Archive";
 import Works from "./Works";
-import "./App.css";
+import Members from "./Members";
 import logo from "./assets/proto_logo.jpg"; // 파일명에 맞게 수정
 
 // ── 인트로 ──────────────────────────────────────
@@ -225,11 +226,11 @@ const SECTIONS = {
     sub: "HIVCD Interaction Design Group",
     desc: "홍익대학교 시각디자인과 인터랙션 디자인 소모임입니다.\n디지털 인터랙션과 시각 커뮤니케이션의 경계를 탐구합니다.\n\nHIVCD Interaction Design Group\nHongik University Visual Communication Design",
   },
-  Members: { title: "Members", sub: "2026 활동 멤버", desc: "멤버 정보가 여기에 표시됩니다." },
 };
 
 function Section({ name }) {
   // Archive는 별도 컴포넌트
+  if (name === "Members") return <Members />;
   if (name === "Archive") return <Archive />;
   if (name === "Works") return <Works />;
   const s = SECTIONS[name];

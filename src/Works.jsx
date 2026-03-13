@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import "./Works.css";
 
 const CATEGORIES = ["All", "Interaction", "Visual", "Branding", "Motion"];
 

@@ -1,0 +1,228 @@
+/* ── Members ── */
+.members-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  padding-top: 72px;
+  position: relative;
+}
+
+.members-left {
+  padding: 60px 40px 60px 48px;
+  border-right: 1px solid rgba(0,255,136,0.12);
+  position: sticky;
+  top: 72px;
+  height: calc(100vh - 72px);
+  display: flex;
+  flex-direction: column;
+}
+
+.members__hint {
+  margin-top: 32px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+}
+
+.members-right {
+  position: relative;
+  height: calc(100vh - 72px);
+  overflow: hidden;
+}
+
+/* 서브메뉴 */
+.members__categories {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 32px;
+}
+
+.members__cat-btn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.35);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  padding: 8px 0 8px 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+  border-left: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 16px;
+}
+.members__cat-btn:hover {
+  color: #fff;
+  border-left-color: rgba(0,255,136,0.4);
+}
+.members__cat-btn--active {
+  color: #00ff88;
+  border-left-color: #00ff88;
+  font-weight: 700;
+}
+
+.members__cat-count {
+  font-size: 0.7rem;
+  opacity: 0.4;
+  background: rgba(255,255,255,0.08);
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+.members__cat-btn--active .members__cat-count {
+  background: rgba(0,255,136,0.15);
+  color: #00ff88;
+  opacity: 1;
+}
+
+/* ── 물방울 ── */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+  backdrop-filter: blur(4px);
+}
+.bubble:hover { z-index: 10; }
+
+.bubble__name {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.4rem;
+  font-weight: 700;
+  user-select: none;
+}
+
+/* ── 모달 딤 ── */
+.modal-dim {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+}
+
+/* ── 모달 카드 ── */
+.modal-wrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 201;
+  pointer-events: none;
+}
+
+.modal-card {
+  position: relative;
+  pointer-events: all;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 40px;
+  width: 320px;
+  max-height: 80vh;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  background: none; border: none;
+  color: rgba(255,255,255,0.4);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.modal-close:hover { color: #fff; }
+
+.modal-avatar {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+}
+.modal-role {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 8px;
+}
+.modal-name {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.modal-intro {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.modal-sns {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 1px solid;
+  border-radius: 20px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.modal-sns:hover { opacity: 0.7; }
+
+/* ── 모바일 ── */
+@media (max-width: 768px) {
+  .members-page {
+    grid-template-columns: 1fr;
+    overflow: hidden;
+  }
+  .members-left {
+    position: static;
+    height: auto;
+    width: 100%;
+    padding: 40px 24px 24px;
+    border-right: none;
+    border-bottom: 1px solid rgba(0,255,136,0.12);
+  }
+  .members__categories {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .members__cat-btn {
+    border-left: none;
+    border-bottom: 2px solid transparent;
+    padding-left: 0;
+    padding-bottom: 4px;
+  }
+  .members__cat-btn--active {
+    border-left: none;
+    border-bottom-color: #00ff88;
+  }
+  .members-right {
+    height: 70vh;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .bubble {
+    transform-origin: center;
+  }
+
+  .modal-card {
+    width: 85%;
+    max-width: 320px;
+    padding: 28px 20px;
+  }
+
+}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import "./Archive.css";
 
 const YEARS = ["2026", "2025", "2024", "2023", "2022", "2021", "2020"];
 
